@@ -1,13 +1,23 @@
+function compile {
+  if [ ! -d "ebin" ]
+  then
+    mkdir ebin
+  fi
+  erlc -o ./ebin src/*.erl test/*.erl resources/*.erl
+}
+
 if [[ $1 == "test" ]]
 then
-  erlc -o ./ebin src/*.erl test/*.erl resources/*.erl
+  compile
   erl -pa ./ebin ./deps/eunit/ebin -noshell -s runner test
 elif [[ $1 == "run" ]]
 then
-  erlc -o ./ebin src/*.erl resources/*.erl
+  compile
   erl -pa ./ebin ./deps/eunit/ebin -noshell -s runner run
 elif [[ $1 != "run" && $1 != "test" ]]
 then
   echo "Usage\n  \`koans run\` # Run the koans\n  \`koans test\` # Run the development tests"
 fi
+
+exit 0
 

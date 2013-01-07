@@ -1,5 +1,5 @@
 -module(pattern_matching).
--export([what_looks_like_assignment_might_not_be/0, assignment_with_a_tuple/0, sometimes_we_do_not_need_to_know_everything/0]).
+-compile(export_all).
 -include("koans.hrl").
 
 what_looks_like_assignment_might_not_be() ->
@@ -7,8 +7,8 @@ what_looks_like_assignment_might_not_be() ->
   Fruits = ?ReplaceMe.
 
 assignment_with_a_tuple() ->
- {X, Y} = {apple, banana},
- (X == ?ReplaceMe) and (Y == ?ReplaceMe).
+ {X, Y} = {banana, apple},
+ (X == ?ReplaceMe) and (Y == apple).
 
 sometimes_we_do_not_need_to_know_everything() ->
   Fruits = {apple, banana},
