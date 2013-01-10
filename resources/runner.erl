@@ -1,5 +1,5 @@
 -module(runner).
--export([run/0, test/0]).
+-export([run/0, test/0, lookup/0]).
 
 run() ->
   {ok, Config} = file:consult("resources/answers.config"),
@@ -11,11 +11,6 @@ run() ->
       io:format("The following function failed its test:\n"),
       erlang:display(Reason)
   end,
-  halt().
-
-test() ->
-  io:format("TODO: Implement insertion of values from answers.config\n"),
-  %io:format("All tests pass"),
   halt().
 
 run_all(Config) ->
@@ -47,6 +42,49 @@ run_module(Config) ->
     true ->
       {_, Function} = Result,
       {error, {ModuleName, Function}}
+  end.
+
+test() ->
+  {ok, Config} = file:consult("resources/answers.config"),
+  test_all(Config),
+  io:format("All tests pass.\n"),
+  halt().
+
+test_all(Config) ->
+  if
+    Config == [] -> ok;
+    true ->
+      [Module | Tail] = Config,
+      case test_module(Module) of
+        ok -> test_all(Tail)
+      end
+  end.
+
+test_module(Config) ->
+  {ModuleName, FunctionToAnswer} = Config,
+  TestModuleName = atom_append(ModuleName, '_test'),
+  lists:foreach(fun({Function, _}) ->
+     TestFunction = atom_append(Function, '_test'),
+     try apply(TestModuleName, TestFunction, [])
+     catch
+      _:Reason ->
+        erlang:display(Reason),
+        halt()
+     end
+   end,
+   FunctionToAnswer).
+
+lookup() ->
+  {ok, Config} = file:consult("resources/answers.config"),
+  try throw(a)
+  catch throw:a ->
+    StackTrace = erlang:get_stacktrace(),
+    Caller = lists:nth(2, StackTrace),
+    {Module, Function, _, _} = Caller,
+    {_, ModuleAnswers} = lists:keyfind(Module, 1, Config),
+    FunctionAnswer = lists:keyfind(Function, 1, ModuleAnswers),
+    {_, Answer} = FunctionAnswer,
+    Answer
   end.
 
 atom_append(Atom1, Atom2) ->

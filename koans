@@ -1,18 +1,18 @@
-function compile {
+if [[ $1 == "test" ]]
+then
   if [ ! -d "ebin" ]
   then
     mkdir ebin
   fi
-  erlc -o ./ebin src/*.erl test/*.erl resources/*.erl
-}
-
-if [[ $1 == "test" ]]
-then
-  compile
+  erlc -Dtest -o ./ebin src/*.erl test/*.erl resources/*.erl
   erl -pa ./ebin -noshell -s runner test
 elif [[ $1 == "run" ]]
 then
-  compile
+  if [ ! -d "ebin" ]
+  then
+    mkdir ebin
+  fi
+  erlc -Drun -o ./ebin src/*.erl test/*.erl resources/*.erl
   erl -pa ./ebin -noshell -s runner run
 elif [[ $1 != "run" && $1 != "test" ]]
 then
