@@ -7,9 +7,12 @@ run() ->
   case Output of
     ok ->
       io:format("You have completed the Erlang Koans. Namaste.\n");
-    {error, Reason} ->
+    {error, {ModuleName, Function, {Expected, Value}}} ->
       io:format("The following function failed its test:\n"),
-      erlang:display(Reason)
+      erlang:display({ModuleName, Function}),
+      io:format("For the following reason:\n"),
+      erlang:display(Expected),
+      erlang:display(Value)
   end,
   halt().
 
@@ -31,8 +34,11 @@ run_module(Config) ->
                    TestFunction = atom_append(Function, '_test'),
                    try apply(TestModuleName, TestFunction, [])
                    catch
-                     _:_ ->
-                       {error, Function}
+                     _:{_, Reason} ->
+                       %{assertion_failed,[{module,about_atoms_test},{line,5},{expression,"about_atoms : truth ( )"},{expected,true},{value,false}]}
+                       Expected = lists:keyfind(expected, 1, Reason),
+                       Value = lists:keyfind(value, 1, Reason),
+                       {error, Function, {Expected, Value}}
                    end
                  end,
                  FunctionToAnswer),
@@ -40,8 +46,8 @@ run_module(Config) ->
   if
     Result == false -> ok;
     true ->
-      {_, Function} = Result,
-      {error, {ModuleName, Function}}
+      {_, Function, Reason} = Result,
+      {error, {ModuleName, Function, Reason}}
   end.
 
 test() ->

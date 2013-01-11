@@ -9,3 +9,4 @@ assignment_with_a_tuple_test() ->
 
 sometimes_we_do_not_need_to_know_everything_test() ->
   ?assert(about_pattern_matching:sometimes_we_do_not_need_to_know_everything()).
+

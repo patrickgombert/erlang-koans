@@ -11,5 +11,5 @@ we_can_add() ->
   [apple, banana] ++ ?ReplaceMe.
 
 we_can_also_take_away() ->
-  [apple, banana] -- [?ReplaceMe].
+  [apple, banana] -- ?ReplaceMe.
 
