@@ -1,4 +1,4 @@
--module(pattern_matching).
+-module(about_pattern_matching).
 -compile(export_all).
 -include("koans.hrl").
 

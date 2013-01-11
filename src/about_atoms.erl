@@ -1,4 +1,4 @@
--module(atoms).
+-module(about_atoms).
 -compile(export_all).
 -include("koans.hrl").
 
