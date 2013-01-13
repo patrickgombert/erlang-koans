@@ -34,11 +34,14 @@ run_module(Config) ->
                    TestFunction = atom_append(Function, '_test'),
                    try apply(TestModuleName, TestFunction, [])
                    catch
-                     _:{_, Reason} ->
-                       %{assertion_failed,[{module,about_atoms_test},{line,5},{expression,"about_atoms : truth ( )"},{expected,true},{value,false}]}
-                       Expected = lists:keyfind(expected, 1, Reason),
-                       Value = lists:keyfind(value, 1, Reason),
-                       {error, Function, {Expected, Value}}
+                     _:{BadMatch, Reason} ->
+                       case BadMatch of
+                         badmatch -> {error, Function, {badmatch, "A pattern failed to match correctly"}};
+                         _ ->
+                           Expected = lists:keyfind(expected, 1, Reason),
+                           Value = lists:keyfind(value, 1, Reason),
+                           {error, Function, {Expected, Value}}
+                       end
                    end
                  end,
                  FunctionToAnswer),
