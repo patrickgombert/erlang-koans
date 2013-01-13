@@ -10,3 +10,12 @@ we_can_add_test() ->
 we_can_also_take_away_test() ->
   ?assertEqual([banana], about_lists:we_can_also_take_away()).
 
+lists_have_heads_test() ->
+  ?assert(about_lists:lists_have_heads()).
+
+lists_also_have_tails_test() ->
+  ?assert(about_lists:lists_also_have_tails()).
+
+lists_of_tuples_can_be_found_by_key_test() ->
+  ?assertEqual({lunch, pasta}, about_lists:lists_of_tuples_can_be_found_by_key()).
+

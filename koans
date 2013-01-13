@@ -4,7 +4,7 @@ then
   then
     mkdir ebin
   fi
-  erlc -Dtest -o ./ebin src/*.erl test/*.erl resources/*.erl
+  erlc -Dtest -W0 -o ./ebin src/*.erl test/*.erl resources/*.erl
   erl -pa ./ebin -noshell -s runner test
 elif [[ $1 == "run" ]]
 then
@@ -12,7 +12,7 @@ then
   then
     mkdir ebin
   fi
-  erlc -Drun -o ./ebin src/*.erl test/*.erl resources/*.erl
+  erlc -Drun -W0 -o ./ebin src/*.erl test/*.erl resources/*.erl
   erl -pa ./ebin -noshell -s runner run
 elif [[ $1 != "run" && $1 != "test" ]]
 then
