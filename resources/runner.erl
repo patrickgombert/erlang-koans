@@ -1,18 +1,20 @@
 -module(runner).
--export([lookup/0, run/0, test/0]).
+-export([lookup/0, test/0, run/0]).
 
 lookup() ->
-  Config = read_config(),
   try throw(purposeful_error)
   catch throw:purposeful_error ->
     StackTrace = erlang:get_stacktrace(),
-    Caller = lists:nth(2, StackTrace),
-    {Module, Function, _, _} = Caller,
-    {_, ModuleAnswers} = lists:keyfind(Module, 1, Config),
-    FunctionAnswer = lists:keyfind(Function, 1, ModuleAnswers),
-    {_, Answer} = FunctionAnswer,
+    {Module, Function, _, _} = lists:nth(2, StackTrace),
+    {_, ModuleAnswers} = lists:keyfind(Module, 1, read_config()),
+    {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
     Answer
   end.
+
+test() ->
+  ModuleNames = lists:map(fun({Module, _}) -> atom_append(Module, '_test') end, read_config()),
+  eunit:test(ModuleNames),
+  halt().
 
 run() ->
   Reporter = fun({Module, {Function, _}}) ->
@@ -42,31 +44,6 @@ run() ->
       io:format("For the following reason:\n"),
       erlang:display(Expected),
       erlang:display(Actual)
-  end,
-  halt().
-
-test() ->
-  Reporter = fun({Module, {Function, _}}) ->
-               TestFunction = atom_append(Function, '_test'),
-               TestModule = atom_append(Module, '_test'),
-               try apply(TestModule, TestFunction, []) of
-                 ok -> {ok, Module, Function, {}}
-               catch
-                 _:Reason ->
-                   {error, Module, Function, Reason}
-               end
-             end,
-  Report = excercise_all(read_config(), Reporter),
-  case lists:keyfind(error, 1, Report) of
-    false -> io:format("All tests pass!\n");
-    _ ->
-      lists:foreach(fun({Status, Module, Error, Reason}) ->
-          if
-            Status == error ->
-              erlang:display(Reason);
-            true -> ok
-          end
-        end, Report)
   end,
   halt().
 
