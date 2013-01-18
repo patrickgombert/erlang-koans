@@ -29,7 +29,8 @@ run() ->
                      assertion_failed ->
                        Expected = lists:keyfind(expected, 1, Reason),
                        Value = lists:keyfind(value, 1, Reason),
-                       {error, Module, Function, {Expected, Value}};
+                       Line = lists:keyfind(line, 1, Reason),
+                       {error, Module, Function, {Expected, Value, Line}};
                      _ ->
                       {error, Module, Function, {Exception, Reason}}
                     end;
@@ -39,12 +40,20 @@ run() ->
   Report = excercise_all(read_config(), Reporter),
   case lists:keyfind(error, 1, Report) of
     false -> io:format("You have completed the Erlang Koans. Namaste.\n");
-    {error, Module, Function, {Expected, Actual}} ->
+    {error, Module, Function, Reason} ->
       io:format("The following function failed its test:\n"),
-      erlang:display({Module, Function}),
-      io:format("For the following reason:\n"),
-      erlang:display(Expected),
-      erlang:display(Actual)
+      case Reason of
+        {Expected, Actual, Line} ->
+          erlang:display({Module, Function, Line}),
+          io:format("For the following reason:\n"),
+          erlang:display(Expected),
+          erlang:display(Actual);
+        {Exception, Reason} ->
+          erlang:display({Module, Function}),
+          io:format("With the exception"),
+          erlang:display(Exception),
+          erlang:display(Reason)
+      end
   end,
   halt().
 
