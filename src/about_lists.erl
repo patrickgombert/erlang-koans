@@ -1,6 +1,6 @@
 -module(about_lists).
 -compile(export_all).
--include("koans.hrl").
+-include("../resources/koans.hrl").
 
 lists_are_not_homogenious() ->
   NotJustFruits = [apple, banana, ?ReplaceMe, mango],

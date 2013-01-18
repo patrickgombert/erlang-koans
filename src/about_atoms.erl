@@ -1,6 +1,6 @@
 -module(about_atoms).
 -compile(export_all).
--include("koans.hrl").
+-include("../resources/koans.hrl").
 
 truth() ->
   ?ReplaceMe == true.

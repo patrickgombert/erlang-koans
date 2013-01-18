@@ -1,6 +1,6 @@
 -module(about_processes).
 -compile(export_all).
--include("koans.hrl").
+-include("../resources/koans.hrl").
 
 writing_messages_to_yourself() ->
   self() ! ?ReplaceMe,

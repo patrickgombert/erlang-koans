@@ -1,6 +1,6 @@
 -module(about_pattern_matching).
 -compile(export_all).
--include("koans.hrl").
+-include("../resources/koans.hrl").
 
 what_looks_like_assignment_might_not_be() ->
   Fruits = apple,
