@@ -9,4 +9,3 @@ To run the development tests with substituted answers from answers.config use th
 #### Development Goals
 - Cover many more topics
 - Change the bash code into escript
-- DRY up resources/runner
