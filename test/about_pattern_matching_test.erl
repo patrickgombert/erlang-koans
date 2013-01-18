@@ -7,6 +7,12 @@ what_looks_like_assignment_might_not_be_test() ->
 assignment_with_a_tuple_test() ->
   ?assert(about_pattern_matching:assignment_with_a_tuple()).
 
+branching_on_patterns_test() ->
+  ?assert(about_pattern_matching:branching_on_patterns()).
+
 sometimes_we_do_not_need_to_know_everything_test() ->
-  ?assert(about_pattern_matching:sometimes_we_do_not_need_to_know_everything()).
+  ?assertEqual(get_here, about_pattern_matching:sometimes_we_do_not_need_to_know_everything()).
+
+and_sometimes_we_dont_need_to_match_anything_test() ->
+  ?assert(about_pattern_matching:and_sometimes_we_dont_need_to_match_anything()).
 

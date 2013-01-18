@@ -24,15 +24,15 @@ run() ->
                try apply(TestModule, TestFunction, []) of
                  ok -> {ok, Module, Function, {}}
                catch
-                 _:{BadMatch, Reason} ->
-                   case BadMatch of
-                     badmatch ->
-                      {error, Module, Function, {badmatch, "A pattern failed to match correctly"}};
-                     _ ->
+                 _:{Exception, Reason} ->
+                   case Exception of
+                     assertion_failed ->
                        Expected = lists:keyfind(expected, 1, Reason),
                        Value = lists:keyfind(value, 1, Reason),
-                       {error, Module, Function, {Expected, Value}}
-                   end;
+                       {error, Module, Function, {Expected, Value}};
+                     _ ->
+                      {error, Module, Function, {Exception, Reason}}
+                    end;
                  _:Reason -> {error, Module, Function, {failure, Reason}}
                end
              end,
