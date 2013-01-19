@@ -6,7 +6,7 @@ writing_messages_to_yourself() ->
   self() ! ?ReplaceMe,
   receive
     Message ->
-      Message == "Hello Self!"
+      Message =:= "Hello Self!"
   end.
 
 writing_messages_to_your_friends() ->

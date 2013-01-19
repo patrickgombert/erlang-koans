@@ -8,13 +8,13 @@ what_looks_like_assignment_might_not_be() ->
 
 assignment_with_a_tuple() ->
  {X, Y} = {banana, apple},
- (X == ?ReplaceMe) and (Y == apple).
+ (X =:= ?ReplaceMe) and (Y =:= apple).
 
 branching_on_patterns() ->
   Fruits = {banana, apple},
   case Fruits of
     {banana, Item} ->
-      ?ReplaceMe == Item
+      ?ReplaceMe =:= Item
   end.
 
 sometimes_we_do_not_need_to_know_everything() ->
@@ -31,5 +31,5 @@ and_sometimes_we_dont_need_to_match_anything() ->
     _ ->
       Answer = anything
   end,
-  ?ReplaceMe == Answer.
+  ?ReplaceMe =:= Answer.
 
