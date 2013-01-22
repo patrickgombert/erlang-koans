@@ -10,3 +10,9 @@ fold_an_answer_from_the_left_test() ->
 or_from_the_right_test() ->
   ?assert(about_higher_order_functions:or_from_the_right()).
 
+filter_the_appropriate_values_test() ->
+  ?assert(about_higher_order_functions:filter_the_appropriate_values()).
+
+function_passed_to_a_function_test() ->
+  ?assert(about_higher_order_functions:function_passed_to_a_function()).
+

@@ -21,6 +21,9 @@ lists_also_have_tails() ->
   [Head | Tail] = [apple, banana, mango],
   Tail =:= ?ReplaceMe.
 
+constructing_with_cons() ->
+  ?ReplaceMe =:= [apple | [banana | [mango | [pear | []]]]].
+
 length_is_as_simple_as_it_seems() ->
   ?ReplaceMe =:= length([1, 2, 3]).
 
