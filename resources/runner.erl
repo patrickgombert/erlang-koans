@@ -9,7 +9,12 @@ lookup() ->
     {_, Last} = lists:last(read_config()),
     {_, ModuleAnswers} = lists:keyfind(Module, 1, read_config()),
     {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
-    Answer
+    case Answer of
+      {function, RawCode} ->
+        eval(RawCode);
+      _ ->
+        Answer
+    end
   end.
 
 test() ->
@@ -52,7 +57,10 @@ run() ->
           erlang:display({Module, Function}),
           io:format("With the exception"),
           erlang:display(Exception),
-          erlang:display(Reason)
+          erlang:display(Reason);
+        AnyReason ->
+          io:format("Something is majorly broken!"),
+          erlang:display(AnyReason)
       end
   end,
   halt().
@@ -70,6 +78,13 @@ excercise_all(Answers, Reporter, Report) ->
 exercise_module(ModuleAnswers, Reporter) ->
   {ModuleName, FunctionAnswerKey} = ModuleAnswers,
   lists:map(Reporter, lists:map(fun(FunctionAnswer) -> {ModuleName, FunctionAnswer} end, FunctionAnswerKey)).
+
+eval(RawCode) ->
+  {ok, Tokens, _} = erl_scan:string(RawCode),
+  {ok, [Form]} = erl_parse:parse_exprs(Tokens),
+  Bindings = erl_eval:add_binding('B', 2, erl_eval:new_bindings()),
+  {value, Fun, _} = erl_eval:expr(Form, Bindings),
+  Fun.
 
 atom_append(Atom1, Atom2) ->
   list_to_atom(atom_to_list(Atom1) ++ atom_to_list(Atom2)).
