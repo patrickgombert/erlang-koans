@@ -30,13 +30,13 @@ run() ->
                  ok -> {ok, Module, Function, {}}
                catch
                  _:{Exception, Reason} ->
-                   case Exception of
-                     assertion_failed ->
+                   if
+                     (Exception =:= assertion_failed) orelse (Exception =:= assertEqual_failed) ->
                        Expected = lists:keyfind(expected, 1, Reason),
                        Value = lists:keyfind(value, 1, Reason),
                        Line = lists:keyfind(line, 1, Reason),
                        {error, Module, Function, {Expected, Value, Line}};
-                     _ ->
+                     true ->
                       {error, Module, Function, {Exception, Reason}}
                     end;
                  _:Reason -> {error, Module, Function, {failure, Reason}}
