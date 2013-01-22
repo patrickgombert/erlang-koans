@@ -59,7 +59,7 @@ run() ->
           erlang:display(Exception),
           erlang:display(Reason);
         AnyReason ->
-          io:format("Something is majorly broken!"),
+          erlang:display({Module, Function}),
           erlang:display(AnyReason)
       end
   end,
