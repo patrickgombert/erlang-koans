@@ -7,3 +7,24 @@ or_operator_test() ->
 and_operator_test() ->
   ?assert(about_boolean_expressions:and_operator()).
 
+xor_operator_test() ->
+  ?assert(about_boolean_expressions:xor_operator()).
+
+not_operator_test() ->
+  ?assert(about_boolean_expressions:not_operator()).
+
+being_strict_test() ->
+  ?assert(about_boolean_expressions:being_strict()).
+
+being_not_so_strict_test() ->
+  ?assert(about_boolean_expressions:being_not_so_strict()).
+
+special_words_evaluate_only_what_is_necessary_test() ->
+  ?assert(about_boolean_expressions:special_words_evaluate_only_what_is_necessary()).
+
+this_applies_to_or_as_well_test() ->
+  ?assert(about_boolean_expressions:this_applies_to_or_as_well()).
+
+make_de_morgan_proud_test() ->
+  ?assert(about_boolean_expressions:make_de_morgan_proud()).
+
