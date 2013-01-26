@@ -24,6 +24,9 @@ lists_also_have_tails() ->
 constructing_with_cons() ->
   ?ReplaceMe =:= [apple | [banana | [mango | [pear | []]]]].
 
+comprehending_a_list() ->
+  ?ReplaceMe =:= [Item * 2 || Item <- [1, 2, 3]].
+
 length_is_as_simple_as_it_seems() ->
   ?ReplaceMe =:= length([1, 2, 3]).
 
