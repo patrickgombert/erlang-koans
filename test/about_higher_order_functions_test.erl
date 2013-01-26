@@ -13,6 +13,9 @@ or_from_the_right_test() ->
 filter_the_appropriate_values_test() ->
   ?assert(about_higher_order_functions:filter_the_appropriate_values()).
 
+merging_two_dicts_test() ->
+  ?assert(about_higher_order_functions:merging_two_dicts()).
+
 function_passed_to_a_function_test() ->
   ?assert(about_higher_order_functions:function_passed_to_a_function()).
 
