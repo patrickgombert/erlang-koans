@@ -5,7 +5,9 @@ lookup() ->
   try throw(purposeful_error)
   catch throw:purposeful_error ->
     StackTrace = erlang:get_stacktrace(),
-    {Module, Function, _, _} = lists:nth(2, StackTrace),
+    UnderTest = lists:nth(2, StackTrace),
+    Module = element(1, UnderTest),
+    Function = element(2, UnderTest),
     {_, Last} = lists:last(read_config()),
     {_, ModuleAnswers} = lists:keyfind(Module, 1, read_config()),
     {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
