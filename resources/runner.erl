@@ -25,26 +25,7 @@ test() ->
   halt().
 
 run() ->
-  Reporter = fun({Module, {Function, _}}) ->
-               TestFunction = atom_append(Function, '_test'),
-               TestModule = atom_append(Module, '_test'),
-               try apply(TestModule, TestFunction, []) of
-                 ok -> {ok, Module, Function, {}}
-               catch
-                 _:{Exception, Reason} ->
-                   if
-                     (Exception =:= assertion_failed) orelse (Exception =:= assertEqual_failed) ->
-                       Expected = lists:keyfind(expected, 1, Reason),
-                       Value = lists:keyfind(value, 1, Reason),
-                       Line = lists:keyfind(line, 1, Reason),
-                       {error, Module, Function, {Expected, Value, Line}};
-                     true ->
-                      {error, Module, Function, {Exception, Reason}}
-                    end;
-                 _:Reason -> {error, Module, Function, {failure, Reason}}
-               end
-             end,
-  Report = excercise_all(read_config(), Reporter),
+  Report = generate_report(),
   case lists:keyfind(error, 1, Report) of
     false -> io:format("You have completed the Erlang Koans. Namaste.\n");
     {error, Module, Function, Reason} ->
@@ -66,6 +47,28 @@ run() ->
       end
   end,
   halt().
+
+generate_report() ->
+  Reporter = fun({Module, {Function, _}}) ->
+               TestFunction = atom_append(Function, '_test'),
+               TestModule = atom_append(Module, '_test'),
+               try apply(TestModule, TestFunction, []) of
+                 ok -> {ok, Module, Function, {}}
+               catch
+                 _:{Exception, Reason} ->
+                   if
+                     (Exception =:= assertion_failed) orelse (Exception =:= assertEqual_failed) ->
+                       Expected = lists:keyfind(expected, 1, Reason),
+                       Value = lists:keyfind(value, 1, Reason),
+                       Line = lists:keyfind(line, 1, Reason),
+                       {error, Module, Function, {Expected, Value, Line}};
+                     true ->
+                      {error, Module, Function, {Exception, Reason}}
+                    end;
+                 _:Reason -> {error, Module, Function, {failure, Reason}}
+               end
+             end,
+  excercise_all(read_config(), Reporter).
 
 excercise_all(Answers, Reporter) ->
   excercise_all(Answers, Reporter, []).
