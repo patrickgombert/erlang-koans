@@ -11,12 +11,7 @@ lookup() ->
     {_, Last} = lists:last(read_config()),
     {_, ModuleAnswers} = lists:keyfind(Module, 1, read_config()),
     {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
-    case Answer of
-      {function, RawCode} ->
-        eval(RawCode);
-      _ ->
-        Answer
-    end
+    Answer
   end.
 
 test() ->
@@ -94,6 +89,5 @@ atom_append(Atom1, Atom2) ->
   list_to_atom(atom_to_list(Atom1) ++ atom_to_list(Atom2)).
 
 read_config() ->
-  {ok, Config} = file:consult("resources/answers.config"),
-  Config.
+  answers:cheat_sheet().
 
