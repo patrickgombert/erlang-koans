@@ -31,8 +31,8 @@ run() ->
     {error, Module, Function, Reason} ->
       io:format("The following function failed its test:\n"),
       case Reason of
-        {Expected, Actual, Line} ->
-          erlang:display({Module, Function, Line}),
+        {Expected, Actual} ->
+          erlang:display({Module, Function}),
           io:format("For the following reason:\n"),
           erlang:display(Expected),
           erlang:display(Actual);
@@ -60,8 +60,7 @@ generate_report() ->
                      (Exception =:= assertion_failed) orelse (Exception =:= assertEqual_failed) ->
                        Expected = lists:keyfind(expected, 1, Reason),
                        Value = lists:keyfind(value, 1, Reason),
-                       Line = lists:keyfind(line, 1, Reason),
-                       {error, Module, Function, {Expected, Value, Line}};
+                       {error, Module, Function, {Expected, Value}};
                      true ->
                       {error, Module, Function, {Exception, Reason}}
                     end;
