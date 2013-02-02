@@ -27,6 +27,12 @@ cheat_sheet() ->
         {if_you_want_to_make_a_lisp_interpreter_do_not_go_alone_take_this, ["(=", "true", "my-answer)"]},
         {joining_a_list_of_strings, "Oxford,Comma"}
       ]},
+    {about_binaries, [
+        {binaries_of_strings, "What am I, really?"},
+        {and_also_strings_of_binaries, <<"What am I, really?">>},
+        {the_first_byte_is_a_byte___right, 98},
+        {then_what_is_the_last, 121}
+      ]},
     {about_pattern_matching, [
         {what_looks_like_assignment_might_not_be, apple},
         {assignment_with_a_tuple, banana},
