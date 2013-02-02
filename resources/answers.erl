@@ -21,7 +21,11 @@ cheat_sheet() ->
         {make_de_morgan_proud, true}
       ]},
     {about_strings, [
-        {first_we_must_see_what_is_underneath, true}
+        {first_we_must_see_what_lies_underneath, true},
+        {two_strings_are_longer_than_one, "Hello World"},
+        {a_substring_is_shorter_than_the_original, "burger"},
+        {if_you_want_to_make_a_lisp_interpreter_do_not_go_alone_take_this, ["(=", "true", "my-answer)"]},
+        {joining_a_list_of_strings, "Oxford,Comma"}
       ]},
     {about_pattern_matching, [
         {what_looks_like_assignment_might_not_be, apple},
