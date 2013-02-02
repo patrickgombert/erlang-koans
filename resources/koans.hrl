@@ -3,5 +3,5 @@
 -endif.
 
 -ifdef(test).
--define(ReplaceMe, runner:lookup()).
+-define(ReplaceMe, answers:get_for_invoking_function()).
 -endif.

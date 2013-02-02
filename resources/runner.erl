@@ -1,18 +1,5 @@
 -module(runner).
--export([lookup/0, test/0, run/0]).
-
-lookup() ->
-  try throw(purposeful_error)
-  catch throw:purposeful_error ->
-    StackTrace = erlang:get_stacktrace(),
-    UnderTest = lists:nth(2, StackTrace),
-    Module = element(1, UnderTest),
-    Function = element(2, UnderTest),
-    {_, Last} = lists:last(read_config()),
-    {_, ModuleAnswers} = lists:keyfind(Module, 1, read_config()),
-    {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
-    Answer
-  end.
+-export([test/0, run/0]).
 
 test() ->
   ModuleNames = lists:map(fun({Module, _}) -> atom_append(Module, '_test') end, read_config()),

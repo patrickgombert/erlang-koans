@@ -1,5 +1,5 @@
 -module(answers).
--export([cheat_sheet/0]).
+-export([cheat_sheet/0, get_for_invoking_function/0]).
 
 cheat_sheet() ->
   [
@@ -19,6 +19,9 @@ cheat_sheet() ->
         {special_words_evaluate_only_what_is_necessary, false},
         {this_applies_to_or_as_well, true},
         {make_de_morgan_proud, true}
+      ]},
+    {about_strings, [
+        {first_we_must_see_what_is_underneath, true}
       ]},
     {about_pattern_matching, [
         {what_looks_like_assignment_might_not_be, apple},
@@ -65,4 +68,17 @@ cheat_sheet() ->
         {writing_messages_to_your_friends, ping}
       ]}
     ].
+
+get_for_invoking_function() ->
+  try throw(purposeful_error)
+  catch throw:purposeful_error ->
+    StackTrace = erlang:get_stacktrace(),
+    UnderTest = lists:nth(2, StackTrace),
+    Module = element(1, UnderTest),
+    Function = element(2, UnderTest),
+    {_, Last} = lists:last(cheat_sheet()),
+    {_, ModuleAnswers} = lists:keyfind(Module, 1, cheat_sheet()),
+    {_, Answer} = lists:keyfind(Function, 1, ModuleAnswers),
+    Answer
+  end.
 
