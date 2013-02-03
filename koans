@@ -1,23 +1,51 @@
-if [[ $1 == "test" ]]
-then
-  if [ ! -d "ebin" ]
-  then
-    mkdir ebin
-  fi
-  erlc -Dtest -W0 -o ./ebin src/*.erl test/*.erl resources/*.erl
-  erl -pa ./ebin -noshell -s runner test
-elif [[ $1 == "run" ]]
-then
-  if [ ! -d "ebin" ]
-  then
-    mkdir ebin
-  fi
-  erlc -Drun -W0 -o ./ebin src/*.erl test/*.erl resources/*.erl
-  erl -pa ./ebin -noshell -s runner run
-elif [[ $1 != "run" && $1 != "test" ]]
-then
-  echo "Usage\n  \`koans run\` # Run the koans\n  \`koans test\` # Run the development tests"
-fi
 
-exit 0
+main([Arg]) ->
+  case Arg of
+    "test" ->
+      set_path(),
+      clean_ebin(),
+      compile_resources(),
+      compile_src(test),
+      compile_test(test),
+      load_compiled_code(),
+      runner:test();
+    _ ->
+      usage()
+  end;
+main(_) ->
+  set_path(),
+  clean_ebin(),
+  compile_resources(),
+  compile_src(run),
+  compile_test(run),
+  load_compiled_code(),
+  runner:run().
 
+clean_ebin() ->
+  {ok, Filenames} = file:list_dir("./ebin"),
+  lists:foreach(fun(File) -> file:delete(string:concat("./ebin/", File)) end, Filenames).
+
+compile_resources() ->
+  {ok, Filenames} = file:list_dir("./resources"),
+  lists:foreach(fun(File) -> compile:file(string:concat("./resources/", File), [{outdir, "./ebin"}]) end, Filenames).
+
+compile_src(Macro) ->
+  {ok, Filenames} = file:list_dir("./src"),
+  lists:foreach(fun(File) -> compile:file(string:concat("./src/", File), [{outdir, "./ebin"}, {d, Macro}]) end, Filenames).
+
+compile_test(Macro) ->
+  {ok, Filenames} = file:list_dir("./test"),
+  lists:foreach(fun(File) -> compile:file(string:concat("./test/", File), [{outdir, "./ebin"}, {d, Macro}]) end, Filenames).
+
+set_path() ->
+  code:add_pathz("./ebin/").
+
+load_compiled_code() ->
+  {ok, Filenames} = file:list_dir("./ebin"),
+  lists:foreach(fun(File) ->
+    Module = string:substr(File, 1, length(File) - 5),
+    code:load_file((list_to_atom(Module)))
+  end, Filenames).
+
+usage() ->
+  io:format("Usage\n  \`koans\` # Run the koans\n  \`koans test\` # Run the development tests\n  \`koans help\` # This help screen\n").
