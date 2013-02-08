@@ -11,15 +11,15 @@ we_can_add() ->
   [apple, banana] ++ ?ReplaceMe.
 
 we_can_also_take_away() ->
-  [apple, banana] -- ?ReplaceMe.
+  [apple, banana] -- [?ReplaceMe].
 
 lists_have_heads() ->
   [Head | Tail] = [apple, banana, mango],
-  Head =:= ?ReplaceMe.
+  ?ReplaceMe =:= Head.
 
 lists_also_have_tails() ->
   [Head | Tail] = [apple, banana, mango],
-  Tail =:= ?ReplaceMe.
+  ?ReplaceMe =:= Tail.
 
 constructing_with_cons() ->
   ?ReplaceMe =:= [apple | [banana | [mango | [pear | []]]]].
