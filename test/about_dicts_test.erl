@@ -10,7 +10,7 @@ append_assumes_something_test() ->
 fetching_what_is_not_available_is_troublesome_test() ->
   ?assert(about_dicts:fetching_what_is_not_available_is_troublesome()).
 
-however_find_is_a_bit_safer() ->
+however_find_is_a_bit_safer_test() ->
   ?assert(about_dicts:however_find_is_a_bit_safer()).
 
 find_reports_on_matches_test() ->
