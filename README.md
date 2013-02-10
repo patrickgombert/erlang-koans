@@ -20,7 +20,7 @@ First, install all necessary dependencies `apt-get -y install build-essential m4
 
 Next, move to some place to install erlang and pull the .tar.gz `wget http://www.erlang.org/download/otp_src_R15B03.tar.gz`
 
-Followed by `tar -xvzf otp_src_R14B03.tar.gz` and `chmod -R 777 otp_src_R14B03`
+Followed by `tar -xvzf otp_src_R15B03.tar.gz` and `chmod -R 777 otp_src_R15B03`
 
 Move to the install directory `cd otp_src_R15B03`
 
