@@ -2,8 +2,8 @@
 main([Arg]) ->
   case Arg of
     "test" ->
-      set_path(),
       clean_ebin(),
+      set_path(),
       compile_resources(),
       compile_src(test),
       compile_test(test),
@@ -13,8 +13,8 @@ main([Arg]) ->
       usage()
   end;
 main(_) ->
-  set_path(),
   clean_ebin(),
+  set_path(),
   compile_resources(),
   compile_src(run),
   compile_test(run),
@@ -22,6 +22,7 @@ main(_) ->
   runner:run().
 
 clean_ebin() ->
+  file:make_dir("./ebin"),
   {ok, Filenames} = file:list_dir("./ebin"),
   lists:foreach(fun(File) -> file:delete(string:concat("./ebin/", File)) end, Filenames).
 
