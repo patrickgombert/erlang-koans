@@ -16,7 +16,8 @@ To run the development tests with substituted answers from answers.config use th
 ##### Ubuntu
 Unfortunately, aptitude has an old version of erlang which is less than ideal.
 
-First, install all necessary dependencies `apt-get -y install build-essential m4 libncurses5-dev libssh-dev unixodbc-dev libgmp3-dev libwxgtk2.8-dev libglu1-mesa-dev fop xsltproc default-jdk`
+First, install all necessary dependencies `apt-get -y install build-essential m4 libncurses5-dev libssh-dev unixodbc-dev`
+<br>`libgmp3-devlibwxgtk2.8-dev libglu1-mesa-dev fop xsltproc default-jdk`
 
 Next, move to some place to install erlang and pull the .tar.gz `wget http://www.erlang.org/download/otp_src_R16B.tar.gz`
 
