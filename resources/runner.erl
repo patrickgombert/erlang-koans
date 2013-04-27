@@ -17,7 +17,13 @@ run() ->
           erlang:display({Module, Function}),
           io:format("For the following reason:\n"),
           erlang:display(Expected),
-          erlang:display(Actual);
+          erlang:display(Actual),
+          case Actual of
+            undef ->
+              io:format("(There's probably a syntax error in '" ++ atom_to_list(Module) ++ ".erl' - make sure each function ends with a period!)\n");
+            _ ->
+              ignore
+          end;
         {Exception, Reason} ->
           erlang:display({Module, Function}),
           io:format("With the exception"),
