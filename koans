@@ -9,6 +9,14 @@ main([Arg]) ->
       compile_test(test),
       load_compiled_code(),
       runner:test();
+    "hint" ->
+      clean_ebin(),
+      set_path(),
+      compile_resources(),
+      compile_src(run),
+      compile_test(run),
+      load_compiled_code(),
+      runner:hint();
     _ ->
       usage()
   end;
