@@ -57,4 +57,4 @@ load_compiled_code() ->
   end, Filenames).
 
 usage() ->
-  io:format("Usage\n  \`koans\` # Run the koans\n  \`koans test\` # Run the development tests\n  \`koans help\` # This help screen\n").
+  io:format("Usage\n  \`koans\`      # Run the koans\n  \`koans test\` # Run the development tests\n  \`koans hint` # Show a hint\n  \`koans help\` # This help screen\n").
