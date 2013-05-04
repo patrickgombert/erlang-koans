@@ -18,7 +18,9 @@ cheat_sheet() ->
         {being_not_so_strict, true},
         {special_words_evaluate_only_what_is_necessary, false},
         {this_applies_to_or_as_well, true},
-        {make_de_morgan_proud, true}
+        {make_de_morgan_proud, true},
+        {syntax_you_would_expect, 1},
+        {and_syntax_you_would_not_expect, 5}
       ]},
     {about_strings, [
         {first_we_must_see_what_lies_underneath, true},
