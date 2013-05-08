@@ -8,6 +8,8 @@ To run the koans use the koans executable with the command `escript koans`. This
 
 To run the development tests with substituted answers from answers.config use the command `escript koans test`.
 
+To show a hint for the current koan, use `escript koans hint`.
+
 ### Erlang Installation
 
 ##### OSX
