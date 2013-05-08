@@ -2,31 +2,17 @@
 main([Arg]) ->
   case Arg of
     "test" ->
-      clean_ebin(),
-      set_path(),
-      compile_resources(),
-      compile_src(test),
-      compile_test(test),
-      load_compiled_code(),
+      recompile(test),
       runner:test();
     "hint" ->
-      clean_ebin(),
-      set_path(),
-      compile_resources(),
-      compile_src(run),
-      compile_test(run),
-      load_compiled_code(),
+      recompile(run),
       runner:hint();
     _ ->
       usage()
   end;
+
 main(_) ->
-  clean_ebin(),
-  set_path(),
-  compile_resources(),
-  compile_src(run),
-  compile_test(run),
-  load_compiled_code(),
+  recompile(run),
   runner:run().
 
 clean_ebin() ->
@@ -58,3 +44,11 @@ load_compiled_code() ->
 
 usage() ->
   io:format("Usage\n  \`koans\`      # Run the koans\n  \`koans test\` # Run the development tests\n  \`koans hint` # Show a hint\n  \`koans help\` # This help screen\n").
+
+recompile(Type) ->
+  clean_ebin(),
+  set_path(),
+  compile_resources(),
+  compile_src(Type),
+  compile_test(Type),
+  load_compiled_code().
