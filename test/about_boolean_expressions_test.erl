@@ -28,3 +28,6 @@ this_applies_to_or_as_well_test() ->
 make_de_morgan_proud_test() ->
   ?assert(about_boolean_expressions:make_de_morgan_proud()).
 
+and_syntax_you_would_not_expect_test() ->
+  ?assert(about_boolean_expressions:syntax_you_might_not_expect()).
+

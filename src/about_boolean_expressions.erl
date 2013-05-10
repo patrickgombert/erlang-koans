@@ -33,3 +33,7 @@ this_applies_to_or_as_well() ->
 make_de_morgan_proud() ->
   ((not true) orelse (?ReplaceMe)) =:= (not (false andalso true)).
 
+syntax_you_might_not_expect() ->
+  Weird = ?ReplaceMe,
+  (Weird =< 3) and (Weird /= 2).
+

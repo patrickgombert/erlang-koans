@@ -1,5 +1,5 @@
 -module(runner).
--export([test/0, run/0]).
+-export([test/0, run/0, hint/0]).
 
 test() ->
   ModuleNames = lists:map(fun({Module, _}) -> atom_append(Module, '_test') end, read_config()),
@@ -17,7 +17,13 @@ run() ->
           erlang:display({Module, Function}),
           io:format("For the following reason:\n"),
           erlang:display(Expected),
-          erlang:display(Actual);
+          erlang:display(Actual),
+          case Actual of
+            undef ->
+              io:format("(There's probably a syntax error in '" ++ atom_to_list(Module) ++ ".erl' - make sure each function ends with a period!)\n");
+            _ ->
+              ignore
+          end;
         {Exception, Reason} ->
           erlang:display({Module, Function}),
           io:format("With the exception"),
@@ -49,16 +55,16 @@ generate_report() ->
                  _:Reason -> {error, Module, Function, {failure, Reason}}
                end
              end,
-  excercise_all(read_config(), Reporter).
+  exercise_all(read_config(), Reporter).
 
-excercise_all(Answers, Reporter) ->
-  excercise_all(Answers, Reporter, []).
-excercise_all(Answers, Reporter, Report) ->
+exercise_all(Answers, Reporter) ->
+  exercise_all(Answers, Reporter, []).
+exercise_all(Answers, Reporter, Report) ->
   if
     Answers == [] -> Report;
     true ->
       [ModuleAnswers | Tail] = Answers,
-      excercise_all(Tail, Reporter, (Report ++ exercise_module(ModuleAnswers, Reporter)))
+      exercise_all(Tail, Reporter, (Report ++ exercise_module(ModuleAnswers, Reporter)))
   end.
 
 exercise_module(ModuleAnswers, Reporter) ->
@@ -77,4 +83,13 @@ atom_append(Atom1, Atom2) ->
 
 read_config() ->
   answers:cheat_sheet().
+
+hint() ->
+  Report = generate_report(),
+  case lists:keyfind(error, 1, Report) of
+    false -> io:format("You have completed the Erlang Koans. Namaste.\n");
+    {error, Module, Function, _} ->
+      io:format("\n==== " ++ atom_to_list(Module) ++ ":" ++ atom_to_list(Function) ++ "() ====\n" ++ hints:hint_for_invoking_function(Module, Function) ++ "\n\n")
+  end,
+  halt().
 
