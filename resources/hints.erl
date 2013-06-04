@@ -49,6 +49,19 @@ each element in a list, so instead we have to use
 list comprehensions to manipulate/refine lists
 until we have a set with the information we need.";
 
+    {about_list_comprehensions, representing_a_list} ->
+"The left hand (i.e. [Item || ..]) can be read as
+'Item for (...)' and the right hand side
+(i.e [.. || Item <- [1, 2, 3]])
+can be read as 'Item in [1, 2, 3]'.
+So together, the comprehension is stating the result
+list is Item for Items in [1, 2, 3].";
+
+    {about_list_comprehensions, applying_a_filter} ->
+"The far right hand side acts as a filter over the
+list specified. In this case, we are finding even
+number within the list [1, 2, 3].";
+
     {about_dicts, append_assumes_something} ->
 "dict:append() can be used to associate multiple
 values with a single key.  So the value can't just

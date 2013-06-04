@@ -53,9 +53,13 @@ cheat_sheet() ->
         {lists_have_heads, apple},
         {lists_also_have_tails, [banana, mango]},
         {constructing_with_cons, [apple, banana, mango, pear]},
-        {comprehending_a_list, [2, 4, 6]},
         {length_is_as_simple_as_it_seems, 3},
         {lists_of_tuples_can_be_found_by_key, pasta}
+      ]},
+    {about_list_comprehensions, [
+        {representing_a_list, [1, 2, 3]},
+        {applying_a_function, [2, 4, 6]},
+        {applying_a_filter, [2]}
       ]},
     {about_dicts, [
         {dictionaries_give_the_definition_of_a_key, value},
