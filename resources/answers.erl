@@ -19,7 +19,7 @@ cheat_sheet() ->
         {special_words_evaluate_only_what_is_necessary, false},
         {this_applies_to_or_as_well, true},
         {make_de_morgan_proud, true},
-        {syntax_you_might_not_expect, 3}
+        {syntax_you_might_not_expect, true}
       ]},
     {about_strings, [
         {first_we_must_see_what_lies_underneath, true},
