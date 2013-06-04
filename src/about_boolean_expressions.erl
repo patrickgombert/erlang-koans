@@ -35,5 +35,5 @@ make_de_morgan_proud() ->
 
 syntax_you_might_not_expect() ->
   Weird = ?ReplaceMe,
-  (Weird =< 3) and (Weird /= 2).
+  (Weird >= 3) and (Weird /= 2).
 
