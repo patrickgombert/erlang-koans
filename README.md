@@ -13,7 +13,7 @@ To show a hint for the current koan, use `escript koans hint`.
 ### Erlang Installation
 
 ##### OSX
-`brew install erlang` will install erlang via <a href="https://github.com/mxcl/homebrew">homebrew</a>. The current version is R16B. 
+<a href="https://github.com/mxcl/homebrew">Homebrew</a> can be used to install Erlang, but it has an out-of-date version (R15B).  To get the most updated version (R16B), you can tap into the `homebrew/homebrew-versions` repo, and get the `erlang-r16` formula from there.  To do this, run `brew tap homebrew/versions` followed by `brew install erlang-r16`.
 
 ##### Ubuntu
 Unfortunately, aptitude has an old version of erlang which is less than ideal.
