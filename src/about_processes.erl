@@ -1,9 +1,8 @@
 -module(about_processes).
 -compile(export_all).
--include("../resources/koans.hrl").
 
 writing_messages_to_yourself() ->
-  self() ! ?ReplaceMe,
+  self() ! __,
   receive
     Message ->
       Message =:= "Hello Self!"
@@ -18,7 +17,7 @@ writing_messages_to_your_friends() ->
                           Pid ! "I only ping-pong!"
                       end
                     end),
-  FriendPid ! {self(), ?ReplaceMe},
+  FriendPid ! {self(), __},
   receive
     pong ->
       get_here;

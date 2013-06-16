@@ -1,3 +1,4 @@
+#!/usr/bin/env escript
 
 main([Arg]) ->
   case Arg of
@@ -20,17 +21,17 @@ clean_ebin() ->
   {ok, Filenames} = file:list_dir("./ebin"),
   lists:foreach(fun(File) -> file:delete(string:concat("./ebin/", File)) end, Filenames).
 
-compile_resources() ->
+compile_resources(Macro) ->
   {ok, Filenames} = file:list_dir("./resources"),
-  lists:foreach(fun(File) -> compile:file(string:concat("./resources/", File), [{outdir, "./ebin"}]) end, Filenames).
+  lists:foreach(fun(File) -> compile:file(string:concat("./resources/", File), [{outdir, "./ebin"}, {d, Macro}]) end, Filenames).
 
-compile_src(Macro) ->
+compile_src() ->
   {ok, Filenames} = file:list_dir("./src"),
-  lists:foreach(fun(File) -> compile:file(string:concat("./src/", File), [{outdir, "./ebin"}, {d, Macro}]) end, Filenames).
+  lists:foreach(fun(File) -> compile:file(string:concat("./src/", File), [{outdir, "./ebin"}, {parse_transform, underscore}]) end, Filenames).
 
-compile_test(Macro) ->
+compile_test() ->
   {ok, Filenames} = file:list_dir("./test"),
-  lists:foreach(fun(File) -> compile:file(string:concat("./test/", File), [{outdir, "./ebin"}, {d, Macro}]) end, Filenames).
+  lists:foreach(fun(File) -> compile:file(string:concat("./test/", File), [{outdir, "./ebin"}]) end, Filenames).
 
 set_path() ->
   code:add_pathz("./ebin/").
@@ -48,7 +49,7 @@ usage() ->
 recompile(Type) ->
   clean_ebin(),
   set_path(),
-  compile_resources(),
-  compile_src(Type),
-  compile_test(Type),
+  compile_resources(Type),
+  compile_src(),
+  compile_test(),
   load_compiled_code().
