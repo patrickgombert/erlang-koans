@@ -13,3 +13,6 @@ strings_are_not_atoms_test() ->
 however_atoms_might_look_like_a_string_test() ->
   ?assert(about_atoms:however_atoms_might_look_like_a_string()).
 
+atoms_are_the_basis_of_all_calls_test() ->
+  ?assert(about_atoms:atoms_are_the_basis_of_all_calls()).
+

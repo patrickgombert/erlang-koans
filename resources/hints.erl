@@ -17,6 +17,13 @@ new to functional languages).  The \"Starting Out
 (for real)\" chapter should be enough to get you
 through these first few koans.";
 
+    {about_atoms, atoms_are_the_basis_of_all_calls} ->
+"Apply is a built in function (BIF) which takes
+the first argument (the module) and the second argument
+(the function name) and makes a call based on these
+parameters. The third argument is always the arguments
+to the function call as a list.";
+
     {about_boolean_expressions, being_strict} ->
 "If you are familiar with Javascript, the '===' is
 roughly equivalent to Erlang's '=:='.  So the two

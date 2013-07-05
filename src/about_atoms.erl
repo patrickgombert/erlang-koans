@@ -13,3 +13,6 @@ strings_are_not_atoms() ->
 however_atoms_might_look_like_a_string() ->
   is_atom('true') =:= __.
 
+atoms_are_the_basis_of_all_calls() ->
+  apply(erlang, list_to_atom, ["erlang"]) =:= __.
+

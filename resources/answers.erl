@@ -7,7 +7,8 @@ cheat_sheet() ->
         {truth, true},
         {truth_is_not_always_boolean, true},
         {strings_are_not_atoms, false},
-        {however_atoms_might_look_like_a_string, true}
+        {however_atoms_might_look_like_a_string, true},
+        {atoms_are_the_basis_of_all_calls, erlang}
       ]},
     {about_boolean_expressions, [
         {or_operator, true},
