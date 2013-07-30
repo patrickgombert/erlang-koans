@@ -40,6 +40,21 @@ to evaluate the truth value of a boolean expression.";
     {about_strings, a_substring_is_shorter_than_the_original} ->
 "Not zero-indexed...";
 
+    {about_integers, base_does_not_change_the_value} ->
+"The value left of '#' represents the base and the
+value right of '#' represents the value in that base.";
+
+    {about_integers, division_is_not_quite_so_straightforward} ->
+"The '/' operator returns a floating point value";
+
+    {about_integers, this_makes_applying_bitwise_operations_a_breeze} ->
+"band is short for binary and";
+
+    {about_integers, do_the_binary_shuffle} ->
+"bsl is a binary left shift. The integer on the left is
+the receiver of the left shift by the value specified
+on the right.";
+
     {about_lists, constructing_with_cons} ->
 "The '|' is called the 'cons' operator.  When it is
 inside square brackets, it splits the list into the

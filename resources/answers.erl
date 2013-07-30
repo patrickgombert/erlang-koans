@@ -35,6 +35,16 @@ cheat_sheet() ->
         {the_first_byte_is_a_byte___right, 98},
         {then_what_is_the_last, 121}
       ]},
+    {about_integers, [
+        {arithmetic_is_easily_applied, 5},
+        {remember_the_remainder, 1},
+        {division_is_not_quite_so_straightforward, 5.5},
+        {maybe_this_is_what_is_needed, 5},
+        {base_does_not_change_the_value, 42},
+        {this_makes_applying_bitwise_operations_a_breeze, 2#01010},
+        {do_the_binary_shuffle, 2#101000000},
+        {now_to_the_right, 2#0101}
+      ]},
     {about_pattern_matching, [
         {what_looks_like_assignment_might_not_be, apple},
         {assignment_with_a_tuple, banana},
