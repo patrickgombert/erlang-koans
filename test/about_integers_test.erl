@@ -13,6 +13,9 @@ division_is_not_quite_so_straightforward_test() ->
 maybe_this_is_what_is_needed_test() ->
   ?assert(about_integers:maybe_this_is_what_is_needed()).
 
+absolute_integers_test() ->
+  ?assert(about_integers:absolute_integers()).
+
 base_does_not_change_the_value_test() ->
   ?assert(about_integers:base_does_not_change_the_value()).
 

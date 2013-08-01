@@ -40,6 +40,7 @@ cheat_sheet() ->
         {remember_the_remainder, 1},
         {division_is_not_quite_so_straightforward, 5.5},
         {maybe_this_is_what_is_needed, 5},
+        {absolute_integers, 42},
         {base_does_not_change_the_value, 42},
         {this_makes_applying_bitwise_operations_a_breeze, 2#01010},
         {do_the_binary_shuffle, 2#101000000},

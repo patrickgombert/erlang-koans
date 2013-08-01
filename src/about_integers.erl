@@ -13,6 +13,9 @@ division_is_not_quite_so_straightforward() ->
 maybe_this_is_what_is_needed() ->
   11 div 2 =:= __.
 
+absolute_integers() ->
+  abs(-42) =:= __.
+
 base_does_not_change_the_value() ->
   12#36 =:= __.
 
