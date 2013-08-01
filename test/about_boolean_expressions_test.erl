@@ -19,8 +19,8 @@ being_strict_test() ->
 being_not_so_strict_test() ->
   ?assert(about_boolean_expressions:being_not_so_strict()).
 
-special_words_evaluate_only_what_is_necessary_test() ->
-  ?assert(about_boolean_expressions:special_words_evaluate_only_what_is_necessary()).
+special_operators_evaluate_only_what_is_necessary_test() ->
+  ?assert(about_boolean_expressions:special_operators_evaluate_only_what_is_necessary()).
 
 this_applies_to_or_as_well_test() ->
   ?assert(about_boolean_expressions:this_applies_to_or_as_well()).

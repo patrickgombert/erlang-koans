@@ -21,7 +21,7 @@ being_not_so_strict() ->
   NotSoStrictlyDefined = (42 == 42.0),
   __ =:= NotSoStrictlyDefined.
 
-special_words_evaluate_only_what_is_necessary() ->
+special_operators_evaluate_only_what_is_necessary() ->
   ShortCircuit = (true andalso false),
   __ =:= ShortCircuit.
 

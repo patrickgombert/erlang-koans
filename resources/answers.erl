@@ -17,7 +17,7 @@ cheat_sheet() ->
         {not_operator, false},
         {being_strict, false},
         {being_not_so_strict, true},
-        {special_words_evaluate_only_what_is_necessary, false},
+        {special_operators_evaluate_only_what_is_necessary, false},
         {this_applies_to_or_as_well, true},
         {make_de_morgan_proud, true},
         {syntax_you_might_not_expect, true}
