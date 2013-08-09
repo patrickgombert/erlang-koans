@@ -25,3 +25,12 @@ writing_messages_to_your_friends() ->
       not_here
   end.
 
+keeping_an_eye_on_your_friends() ->
+  process_flag(trap_exit, true),
+  spawn_link(fun() -> exit("Goodbye!") end),
+  EndMessage = receive
+    {'EXIT', _, Message} ->
+      Message
+  end,
+  __ =:= EndMessage.
+

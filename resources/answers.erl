@@ -92,7 +92,8 @@ cheat_sheet() ->
       ]},
     {about_processes, [
         {writing_messages_to_yourself, "Hello Self!"},
-        {writing_messages_to_your_friends, ping}
+        {writing_messages_to_your_friends, ping},
+        {keeping_an_eye_on_your_friends, "Goodbye!"}
       ]}
     ].
 
