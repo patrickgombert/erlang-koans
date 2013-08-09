@@ -8,7 +8,7 @@ hint_for_invoking_function(Module, Function) ->
 
 For these first few koans, the goal is to get
 each function to evaluate to \"true\" by
-replacing the \"?ReplaceMe\" statement.
+replacing the \"__\" statement.
 
 If this is your first time using Erlang,
 learnyousomeerlang.com is a great resource (and
