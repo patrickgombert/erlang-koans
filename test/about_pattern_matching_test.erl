@@ -16,3 +16,6 @@ sometimes_we_do_not_need_to_know_everything_test() ->
 and_sometimes_we_dont_need_to_match_anything_test() ->
   ?assert(about_pattern_matching:and_sometimes_we_dont_need_to_match_anything()).
 
+we_can_find_patterns_in_arguments_test() ->
+  ?assertEqual(right, about_pattern_matching:we_can_find_patterns_in_arguments()).
+

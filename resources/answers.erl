@@ -51,7 +51,8 @@ cheat_sheet() ->
         {assignment_with_a_tuple, banana},
         {branching_on_patterns, apple},
         {sometimes_we_do_not_need_to_know_everything, apple},
-        {and_sometimes_we_dont_need_to_match_anything, anything}
+        {and_sometimes_we_dont_need_to_match_anything, anything},
+        {we_can_find_patterns_in_arguments, bar}
       ]},
     {about_guard_clauses, [
         {truthfulness_is_necessary_for_guards, true},

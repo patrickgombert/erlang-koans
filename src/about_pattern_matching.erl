@@ -1,4 +1,5 @@
 -module(about_pattern_matching).
+-export([what_looks_like_assignment_might_not_be/0, assignment_with_a_tuple/0, branching_on_patterns/0, sometimes_we_do_not_need_to_know_everything/0, and_sometimes_we_dont_need_to_match_anything/0, we_can_find_patterns_in_arguments/0]).
 -compile(export_all).
 
 what_looks_like_assignment_might_not_be() ->
@@ -31,4 +32,14 @@ and_sometimes_we_dont_need_to_match_anything() ->
       Answer = anything
   end,
   __ =:= Answer.
+
+we_can_find_patterns_in_arguments() ->
+  match_the_argument(__).
+
+match_the_argument(foo) ->
+  wrong;
+match_the_argument(bar) ->
+  right;
+match_the_argument(_) ->
+  wronger.
 
