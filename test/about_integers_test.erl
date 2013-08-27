@@ -1,7 +1,7 @@
 -module(about_integers_test).
 -include_lib("eunit/include/eunit.hrl").
 
-arithmetic_is_easily_applied_tes() ->
+arithmetic_is_easily_applied_test() ->
   ?assert(about_integers:arithmetic_is_easily_applied()).
 
 remember_the_remainder_test() ->
