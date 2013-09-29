@@ -83,6 +83,12 @@ cheat_sheet() ->
         {erasing_from_a_dict, error},
         {size_is_relative, false}
       ]},
+    {about_records, [
+        {fields_may_have_defaults, 0},
+        {undefined_fields_may_still_be_referenced, undefined},
+        {fields_may_be_set_on_initialization, apple},
+        {redefine_a_field, 0.89}
+      ]},
     {about_higher_order_functions, [
         {map_a_list_to_a_new_list, [2, 4, 6]},
         {fold_an_answer_from_the_left, "hello erlang koans"},

@@ -82,6 +82,13 @@ hint_for_invoking_function(about_list_comprehensions, applying_a_filter) ->
   list specified. In this case, we are finding even
   number within the list [1, 2, 3].";
 
+hint_for_invoking_function(about_records, _) ->
+  "The '-record' syntax will define a record within a
+  module. The first argument is an atom for the name
+  of the record. The tuple in the second argument
+  defines the fields of a record. Defaults are defined
+  with 'fields=default'.";
+
 hint_for_invoking_function(about_dicts, append_assumes_something) ->
   "dict:append() can be used to associate multiple
   values with a single key.  So the value can't just
