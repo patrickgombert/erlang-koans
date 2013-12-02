@@ -12,22 +12,5 @@ To show a hint for the current koan, use `escript koans hint`.
 
 ### Erlang Installation
 
-##### OSX
-<a href="https://github.com/mxcl/homebrew">Homebrew</a> can be used to install Erlang, but it has an out-of-date version (R15B).  To get the most updated version (R16B02), you can tap into the `homebrew/homebrew-versions` repo, and get the `erlang-r1602` formula from there.  To do this, run `brew tap homebrew/versions` followed by `brew install erlang-r1602`.
+See the installation guide provided in the <a href="http://docs.basho.com/riak/latest/ops/building/installing/erlang/">Riak docs</a>.
 
-##### Ubuntu
-Unfortunately, aptitude has an old version of erlang which is less than ideal.
-
-First, install all necessary dependencies `apt-get -y install build-essential m4 libncurses5-dev libssh-dev unixodbc-dev` `libgmp3-dev libwxgtk2.8-dev libglu1-mesa-dev fop xsltproc default-jdk`
-
-Next, move to some place to install erlang and pull the .tar.gz `wget http://www.erlang.org/download/otp_src_R16B02.tar.gz`
-
-Followed by `tar -xvzf otp_src_R16B02.tar.gz` and `chmod -R 777 otp_src_R16B02`
-
-Move to the install directory `cd otp_src_R16B02`
-
-Then run `./configure`, `make`, `make install` which will produce a bin/ directory. Place this bin/ directory on your path. Specifically, the koans require the erl, erlc, and escript binaries.
-
-#### Development Goals
-- Cover many more topics
-- Include erlang installation instructions (for all environments not yet mentioned) in this README
