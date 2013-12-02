@@ -1,5 +1,10 @@
 -module(about_atoms).
--compile(export_all).
+-export([truth/0,
+         truth_is_not_always_boolean/0,
+         strings_are_not_atoms/0,
+         however_atoms_might_look_like_a_string/0,
+         atoms_are_the_basis_of_all_calls/0
+        ]).
 
 truth() ->
     __ =:= true.

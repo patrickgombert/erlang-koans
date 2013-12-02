@@ -1,5 +1,9 @@
 -module(about_records).
--compile(export_all).
+-export([fields_may_have_defaults/0,
+         undefined_fields_may_still_be_referenced/0,
+         fields_may_be_set_on_initialization/0,
+         redefine_a_field/0
+        ]).
 
 -record(fruit, {name, price, vitamin_c=0}).
 

@@ -1,5 +1,13 @@
 -module(about_lists).
--compile(export_all).
+-export([lists_are_not_homogenious/0,
+         we_can_add/0,
+         we_can_also_take_away/0,
+         lists_have_heads/0,
+         lists_also_have_tails/0,
+         constructing_with_cons/0,
+         length_is_as_simple_as_it_seems/0,
+         lists_of_tuples_can_be_found_by_key/0
+        ]).
 
 lists_are_not_homogenious() ->
     NotJustFruits = [apple, banana, __, mango],

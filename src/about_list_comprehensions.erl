@@ -1,5 +1,8 @@
 -module(about_list_comprehensions).
--compile(export_all).
+-export([representing_a_list/0,
+         applying_a_function/0,
+         applying_a_filter/0
+        ]).
 
 representing_a_list() ->
     __ =:= [Item || Item <- [1, 2, 3]].

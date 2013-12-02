@@ -1,5 +1,15 @@
 -module(about_boolean_expressions).
--compile(export_all).
+-export([or_operator/0,
+         and_operator/0,
+         xor_operator/0,
+         not_operator/0,
+         being_strict/0,
+         being_not_so_strict/0,
+         special_operators_evaluate_only_what_is_necessary/0,
+         this_applies_to_or_as_well/0,
+         make_de_morgan_proud/0,
+         syntax_you_might_not_expect/0
+        ]).
 
 or_operator() ->
     __ =:= true or false.

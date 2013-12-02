@@ -1,5 +1,12 @@
 -module(about_dicts).
--compile(export_all).
+-export([dictionaries_give_the_definition_of_a_key/0,
+         append_assumes_something/0,
+         fetching_what_is_not_available_is_troublesome/0,
+         however_find_is_a_bit_safer/0,
+         find_reports_on_matches/0,
+         erasing_from_a_dict/0,
+         size_is_relative/0
+        ]).
 
 dictionaries_give_the_definition_of_a_key() ->
     Dict = dict:store(key, value, dict:new()),
@@ -11,6 +18,7 @@ append_assumes_something() ->
 
 fetching_what_is_not_available_is_troublesome() ->
     __ =:= bad_fetch().
+
 bad_fetch() ->
     try dict:fetch(not_a_key, dict:new()) of
         _ ->

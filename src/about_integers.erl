@@ -1,5 +1,14 @@
 -module(about_integers).
--compile(export_all).
+-export([arithmetic_is_easily_applied/0,
+         remember_the_remainder/0,
+         division_is_not_quite_so_straightforward/0,
+         maybe_this_is_what_is_needed/0,
+         absolute_integers/0,
+         base_does_not_change_the_value/0,
+         this_makes_applying_bitwise_operations_a_breeze/0,
+         do_the_binary_shuffle/0,
+         now_to_the_right/0
+        ]).
 
 arithmetic_is_easily_applied() ->
     10 - 5 =:= __.

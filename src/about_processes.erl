@@ -1,5 +1,8 @@
 -module(about_processes).
--compile(export_all).
+-export([writing_messages_to_yourself/0,
+         writing_messages_to_your_friends/0,
+         keeping_an_eye_on_your_friends/0
+        ]).
 
 writing_messages_to_yourself() ->
     self() ! __,
