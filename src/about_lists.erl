@@ -2,6 +2,8 @@
 -export([lists_are_not_homogenious/0,
          we_can_add/0,
          we_can_also_take_away/0,
+         lists_define_delete/0,
+         just_how_many_are_deleted/0,
          lists_have_heads/0,
          lists_also_have_tails/0,
          constructing_with_cons/0,
@@ -19,6 +21,12 @@ we_can_add() ->
 
 we_can_also_take_away() ->
     [apple, banana] -- [__].
+
+lists_define_delete() ->
+    lists:delete(__, [apple, banana]).
+
+just_how_many_are_deleted() ->
+    __ =:= lists:delete(apple, [apple, banana, apple]).
 
 lists_have_heads() ->
     [Head | Tail] = [apple, banana, mango],

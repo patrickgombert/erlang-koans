@@ -63,6 +63,8 @@ cheat_sheet() ->
         {lists_are_not_homogenious, 1},
         {we_can_add, [mango, orange]},
         {we_can_also_take_away, apple},
+        {lists_define_delete, apple},
+        {just_how_many_are_deleted, [banana, apple]},
         {lists_have_heads, apple},
         {lists_also_have_tails, [banana, mango]},
         {constructing_with_cons, [apple, banana, mango, pear]},

@@ -10,6 +10,12 @@ we_can_add_test() ->
 we_can_also_take_away_test() ->
     ?assertEqual([banana], about_lists:we_can_also_take_away()).
 
+lists_define_delete_test() ->
+    ?assertEqual([banana], about_lists:lists_define_delete()).
+
+just_how_many_are_deleted_test() ->
+    ?assert(about_lists:just_how_many_are_deleted()).
+
 lists_have_heads_test() ->
     ?assert(about_lists:lists_have_heads()).
 
