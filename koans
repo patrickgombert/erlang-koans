@@ -12,9 +12,12 @@ main([Arg]) ->
       usage()
   end;
 
-main(_) ->
+main([]) ->
   recompile(run),
-  runner:run().
+  runner:run();
+
+main(_) ->
+  usage().
 
 clean_ebin() ->
   file:make_dir("./ebin"),
