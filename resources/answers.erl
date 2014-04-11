@@ -88,7 +88,8 @@ cheat_sheet() ->
     {about_maps, [
         {reading_a_key, val},
         {adding_a_new_key, val2},
-        {updating_an_existing_key, val2}
+        {updating_an_existing_key, val2},
+        {matching_the_interesting_bits, 0.79}
       ]},
     {about_records, [
         {fields_may_have_defaults, 0},

@@ -10,3 +10,6 @@ adding_a_new_key_test() ->
 updating_an_existing_key_test() ->
     ?assert(about_maps:updating_an_existing_key()).
 
+matching_the_interesting_bits_test() ->
+    ?assert(about_maps:matching_the_interesting_bits()).
+
