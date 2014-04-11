@@ -85,6 +85,11 @@ cheat_sheet() ->
         {erasing_from_a_dict, error},
         {size_is_relative, false}
       ]},
+    {about_maps, [
+        {reading_a_key, val},
+        {adding_a_new_key, val2},
+        {updating_an_existing_key, val2}
+      ]},
     {about_records, [
         {fields_may_have_defaults, 0},
         {undefined_fields_may_still_be_referenced, undefined},

@@ -12,5 +12,4 @@ To show a hint for the current koan, use `escript koans hint`.
 
 ### Erlang Installation
 
-See the installation guide provided in the <a href="http://docs.basho.com/riak/latest/ops/building/installing/erlang/">Riak docs</a>.
-
+See the <a href="http://www.erlang.org/doc/installation_guide/INSTALL.html"> installation guide</a>. Be sure to install version 17 which includes the much anticipated map feature!

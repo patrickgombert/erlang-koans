@@ -99,6 +99,12 @@ hint_for_invoking_function(about_dicts, fetching_what_is_not_available_is_troubl
     console), you can see the error that is thrown.
     So what is the abbreviation of that?";
 
+hint_for_invoking_function(about_maps, updating_an_existing_key) ->
+    "There are two operators which are used to set a
+    key in a map. '=>' denotes a new key (previously
+    not included in the map). ':=' denotes an update
+    to an existing key.";
+
 hint_for_invoking_function(about_higher_order_functions, function_passed_to_a_function) ->
     "The syntax that will satisfy `is_function()` looks
     like this:  `fun(Args, ...) -> (function body) end,`.
