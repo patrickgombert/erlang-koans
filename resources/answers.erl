@@ -109,6 +109,10 @@ cheat_sheet() ->
         {writing_messages_to_yourself, "Hello Self!"},
         {writing_messages_to_your_friends, ping},
         {keeping_an_eye_on_your_friends, "Goodbye!"}
+      ]},
+    {about_gen_servers, [
+        {one_may_send_synchronous_messages, 0},
+        {one_may_also_send_asynchronous_messages, 2}
       ]}
     ].
 

@@ -115,6 +115,22 @@ hint_for_invoking_function(about_processes, _) ->
     "`receive` uses pattern matching to decide how to
     react to a message.";
 
+hint_for_invoking_function(about_gen_servers, one_may_send_synchronous_messages) ->
+  "Gen Server is a general abstraction over receiving messages,
+  the callback functions defined in this koan module constitute
+  the gen server. handle_call is an abstraction that takes
+  the message as the first argument, the callee as the second
+  argument and the current state (which is initially set in
+  init) as the third argument. The return value specifies
+  what to do (in this case reply), the return value in the
+  second position, and the state for the server to keep in
+  the third position.";
+
+hint_for_invoking_function(about_gen_servers, one_may_also_send_asynchronous_messages) ->
+  "Gen Server handle_cast takes a message and a current state
+  and returns an atom specifying what to do and the new state.";
+
+
 hint_for_invoking_function(_, _) ->
     "No hint for this one.
     learnyousomeerlang.com might help.".
