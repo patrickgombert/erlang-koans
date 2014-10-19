@@ -128,7 +128,9 @@ hint_for_invoking_function(about_gen_servers, one_may_send_synchronous_messages)
 
 hint_for_invoking_function(about_gen_servers, one_may_also_send_asynchronous_messages) ->
   "Gen Server handle_cast takes a message and a current state
-  and returns an atom specifying what to do and the new state.";
+  and returns an atom specifying what to do and the new state.
+  Note that since casting is asynchronous the caller will not
+  receive a return value.";
 
 
 hint_for_invoking_function(_, _) ->
