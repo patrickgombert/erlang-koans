@@ -116,21 +116,28 @@ hint_for_invoking_function(about_processes, _) ->
     react to a message.";
 
 hint_for_invoking_function(about_gen_servers, one_may_send_synchronous_messages) ->
-  "Gen Server is a general abstraction over receiving messages,
-  the callback functions defined in this koan module constitute
-  the gen server. handle_call is an abstraction that takes
-  the message as the first argument, the callee as the second
-  argument and the current state (which is initially set in
-  init) as the third argument. The return value specifies
-  what to do (in this case reply), the return value in the
-  second position, and the state for the server to keep in
-  the third position.";
+    "Gen Server is a general abstraction over receiving messages,
+    the callback functions defined in this koan module constitute
+    the gen server. handle_call is an abstraction that takes
+    the message as the first argument, the callee as the second
+    argument and the current state (which is initially set in
+    init) as the third argument. The return value specifies
+    what to do (in this case reply), the return value in the
+    second position, and the state for the server to keep in
+    the third position.";
 
 hint_for_invoking_function(about_gen_servers, one_may_also_send_asynchronous_messages) ->
-  "Gen Server handle_cast takes a message and a current state
-  and returns an atom specifying what to do and the new state.
-  Note that since casting is asynchronous the caller will not
-  receive a return value.";
+    "Gen Server handle_cast takes a message and a current state
+    and returns an atom specifying what to do and the new state.
+    Note that since casting is asynchronous the caller will not
+    receive a return value.";
+
+hint_for_invoking_function(about_gen_fsms, _) ->
+    "FSM is short for finite state machine. The example here
+    only has two states, not_paid and paid. The second match of
+    the function not_paid is the only way to transition to paid.
+    Likewise, the first match for paid is the only way to
+    transition to paid.";
 
 
 hint_for_invoking_function(_, _) ->

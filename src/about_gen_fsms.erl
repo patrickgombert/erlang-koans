@@ -4,13 +4,15 @@
 -export([initial_state_is_set_in_init/0,
          some_actions_will_not_trigger_a_state_change/0,
          while_others_will_trigger_a_state_change/0,
-         go_ahead_and_grab_a_soda/0]).
+         go_ahead_and_grab_a_soda/0
+        ]).
 
 -export([init/1,
          not_paid/3,
          paid/3,
          handle_event/3,
-         terminate/3]).
+         terminate/3
+        ]).
 
 initial_state_is_set_in_init() ->
     {ok, FsmPid} = gen_fsm:start(?MODULE, 0, []),
