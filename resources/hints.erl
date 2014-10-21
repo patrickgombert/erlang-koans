@@ -61,14 +61,6 @@ hint_for_invoking_function(about_lists, constructing_with_cons) ->
     matching, or for adding an element to the front of
     the list.";
 
-hint_for_invoking_function(about_lists, comprehending_a_list) ->
-    "Since functional languages don't allow mutable
-    variables, there's no way to increment a counter
-    variable.  This means we can't iterate through
-    each element in a list, so instead we have to use
-    list comprehensions to manipulate/refine lists
-    until we have a set with the information we need.";
-
 hint_for_invoking_function(about_list_comprehensions, representing_a_list) ->
     "The left hand (i.e. [Item || ..]) can be read as
     'Item for (...)' and the right hand side
