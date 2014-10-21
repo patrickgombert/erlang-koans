@@ -115,7 +115,10 @@ cheat_sheet() ->
         {one_may_also_send_asynchronous_messages, 2}
       ]},
     {about_gen_fsms, [
-        {the_initial_state_is_set_in_init, "You still owe 125"}
+        {initial_state_is_set_in_init, "You still owe 125"},
+        {some_actions_will_not_trigger_a_state_change, "You still owe 100"},
+        {while_others_will_trigger_a_state_change, "Please make a selection, refunding coin"},
+        {go_ahead_and_grab_a_soda, "Vending a Soda"}
       ]}
     ].
 
