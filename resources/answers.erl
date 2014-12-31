@@ -112,7 +112,8 @@ cheat_sheet() ->
       ]},
     {about_gen_servers, [
         {one_may_send_synchronous_messages, 0},
-        {one_may_also_send_asynchronous_messages, 2}
+        {one_may_also_send_asynchronous_messages, 2},
+        {act_upon_all_messages, 0}
       ]},
     {about_gen_fsms, [
         {initial_state_is_set_in_init, "You still owe 125"},

@@ -6,3 +6,6 @@ one_may_send_synchronous_messages_test() ->
 
 one_may_also_send_asynchronous_messages_test() ->
     ?assert(about_gen_servers:one_may_also_send_asynchronous_messages()).
+
+act_upon_all_messages_test() ->
+    ?assert(about_gen_servers:act_upon_all_messages()).
