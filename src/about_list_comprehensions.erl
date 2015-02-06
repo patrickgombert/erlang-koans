@@ -1,7 +1,8 @@
 -module(about_list_comprehensions).
 -export([representing_a_list/0,
          mapping_a_function/0,
-         applying_a_filter/0
+         applying_a_filter/0,
+         all_together_now/0
         ]).
 
 representing_a_list() ->
@@ -12,4 +13,7 @@ mapping_a_function() ->
 
 applying_a_filter() ->
     __ =:= [Item || Item <- [1, 2, 3], Item rem 2 =:= 0].
+
+all_together_now() ->
+    __ =:= [Item * 2 || Item <- [1, 2, 3], Item rem 2 =:= 0].
 

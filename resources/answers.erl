@@ -74,7 +74,8 @@ cheat_sheet() ->
     {about_list_comprehensions, [
         {representing_a_list, [1, 2, 3]},
         {mapping_a_function, [2, 4, 6]},
-        {applying_a_filter, [2]}
+        {applying_a_filter, [2]},
+        {all_together_now, [4]}
       ]},
     {about_dicts, [
         {dictionaries_give_the_definition_of_a_key, value},

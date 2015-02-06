@@ -10,3 +10,6 @@ mapping_a_function_test() ->
 applying_a_filter_test() ->
     ?assert(about_list_comprehensions:applying_a_filter()).
 
+all_together_now_test() ->
+    ?assert(about_list_comprehensions:all_together_now()).
+
