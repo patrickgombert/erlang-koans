@@ -1,8 +1,8 @@
 -module(about_lists_test).
 -include_lib("eunit/include/eunit.hrl").
 
-lists_are_not_homogenious_test() ->
-    ?assert(about_lists:lists_are_not_homogenious()).
+lists_are_not_homogeneous_test() ->
+    ?assert(about_lists:lists_are_not_homogeneous()).
 
 we_can_add_test() ->
     ?assertEqual([apple, banana, mango, orange], about_lists:we_can_add()).

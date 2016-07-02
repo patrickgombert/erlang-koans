@@ -1,5 +1,5 @@
 -module(about_lists).
--export([lists_are_not_homogenious/0,
+-export([lists_are_not_homogeneous/0,
          we_can_add/0,
          we_can_also_take_away/0,
          lists_define_delete/0,
@@ -11,7 +11,7 @@
          lists_of_tuples_can_be_found_by_key/0
         ]).
 
-lists_are_not_homogenious() ->
+lists_are_not_homogeneous() ->
     NotJustFruits = [apple, banana, __, mango],
     Element = lists:nth(3, NotJustFruits),
     (Element < 2) and (Element > 0).
