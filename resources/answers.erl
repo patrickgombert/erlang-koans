@@ -60,7 +60,7 @@ cheat_sheet() ->
         {there_also_exists_a_shorthand_for_or, 5}
       ]},
     {about_lists, [
-        {lists_are_not_homogenious, 1},
+        {lists_are_not_homogeneous, 1},
         {we_can_add, [mango, orange]},
         {we_can_also_take_away, apple},
         {lists_define_delete, apple},
