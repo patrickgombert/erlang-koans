@@ -17,4 +17,4 @@ To show a hint for the current koan, use `escript koans hint`.
 
 ### Erlang Installation
 
-See the <a href="http://www.erlang.org/doc/installation_guide/INSTALL.html"> installation guide</a>. Be sure to install version 17 which includes the much anticipated map feature!
+Use the included `Makefile` if you have docker installed, otherwise see the <a href="http://www.erlang.org/doc/installation_guide/INSTALL.html"> installation guide</a>.
